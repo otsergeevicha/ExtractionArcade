@@ -18,7 +18,7 @@ namespace Inputs
             _input.Player.Touch.canceled += _ =>
                 OffJoystick?.Invoke();
         }
-        
+
         public Vector2 MoveAxis =>
              _input.Player.Move.ReadValue<Vector2>();
 
