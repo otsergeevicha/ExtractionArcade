@@ -23,7 +23,8 @@ namespace JoystickLogic
         [SerializeField] private bool _hideOnPointerUp;
         [SerializeField] private bool _centralizeOnPointerUp = true;
         
-        private readonly VirtualJoystickType _joystickType = VirtualJoystickType.Floating;
+        [SerializeField] private VirtualJoystickType _joystickType = VirtualJoystickType.Floating;
+        
         private Vector2 _initialPosition = Vector2.zero;
         private Camera _camera;
         
