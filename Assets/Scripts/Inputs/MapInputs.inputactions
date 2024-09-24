@@ -168,17 +168,6 @@
                 },
                 {
                     "name": "",
-                    "id": "7d936d49-208d-472f-a0f9-f2d224fc06c2",
-                    "path": "<Mouse>/position",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "Gamepad;KeyboardMouse",
-                    "action": "TouchPosition",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "a70d8c3d-9cf1-4e7d-b641-07f89062c144",
                     "path": "<Pointer>/press",
                     "interactions": "Press",
@@ -207,6 +196,17 @@
                     "processors": "",
                     "groups": "Gamepad;KeyboardMouse",
                     "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7d936d49-208d-472f-a0f9-f2d224fc06c2",
+                    "path": "<Mouse>/position",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Gamepad;KeyboardMouse",
+                    "action": "TouchPosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

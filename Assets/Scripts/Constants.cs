@@ -1,10 +1,9 @@
 ﻿public static class Constants
 {
+    public const int MinHealth = 0;
+    
     //save Load
     public const string Progress = "Progress";
-    
-    //check device
-    public const string KeyboardMouse = "KeyboardMouse";
         
     //scenes name
     public const string MainScene = "Main";
