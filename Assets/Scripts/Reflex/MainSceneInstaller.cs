@@ -14,6 +14,7 @@ namespace Reflex
     public class MainSceneInstaller : MonoCache, IInstaller
     {
         [SerializeField] private HeroData _heroData;
+        [SerializeField] private InventoryData _inventoryData;
         
         private IInputService _input;
         private IGameFactory _gameFactory;
@@ -23,6 +24,7 @@ namespace Reflex
         private Hud _hud;
         private Hero _hero;
         private Coroutines _coroutines;
+        private WindowModule _windowModule;
 
         public void InstallBindings(ContainerBuilder descriptor) => 
             descriptor.OnContainerBuilt += LoadLevel;
@@ -39,6 +41,8 @@ namespace Reflex
 
         private void CreateGame()
         {
+            _windowModule = new WindowModule(_inventoryData, _gameFactory);
+            
             _camera = _gameFactory.CreateMainCamera();
             _hero = _gameFactory.CreateHero();
             _hud = _gameFactory.CreateHud();

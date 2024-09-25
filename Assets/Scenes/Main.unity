@@ -411,6 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroData: {fileID: 11400000, guid: dd440062bc09d8a42b94238f775195c4, type: 2}
+  _inventoryData: {fileID: 11400000, guid: 745d25df2554d4e40b0139fcacf3c017, type: 2}
 --- !u!114 &1385081343
 MonoBehaviour:
   m_ObjectHideFlags: 0
