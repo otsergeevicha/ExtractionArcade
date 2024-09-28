@@ -25,6 +25,8 @@ namespace Inventory.Controllers
                     _slotsController.Add(new InventorySlotController(slot, slotView));
                 }
             }
+
+            view.OwnerId = inventory.OwnerId;
         }
     }
 }

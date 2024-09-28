@@ -13,6 +13,7 @@ namespace Inventory.Controllers
         {
             _service = service;
             _view = view;
+            view.InActive();
         }
 
         public void OpenInventory(string ownerId)
@@ -21,6 +22,7 @@ namespace Inventory.Controllers
             var inventoryView = _view.InventoryView;
 
             _currentInventoryGridController = new InventoryGridController(inventory, inventoryView);
+            _view.OnActive();
         }
     }
 }

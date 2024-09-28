@@ -1,5 +1,6 @@
 ﻿using Canvases;
 using GameCamera;
+using Inventory.Views;
 using Player;
 using Services.Assets;
 using Services.Factory;
@@ -29,5 +30,9 @@ namespace Infrastructure.Factory
         public Hud CreateHud() => 
             _assetsProvider.InstantiateEntity(Constants.HudPath)
                 .GetComponent<Hud>();
+
+        public InventoryScreenView CreateInventoryScreen() => 
+            _assetsProvider.InstantiateEntity(Constants.InventoryScreenPath)
+                .GetComponent<InventoryScreenView>();
     }
 }

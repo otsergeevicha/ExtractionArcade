@@ -1,28 +1,65 @@
-﻿using Inventory;
+﻿using System;
+using Inventory;
+using Inventory.Controllers;
 using Inventory.Data;
 using Inventory.SaveLoad;
-using Services.Factory;
+using Inventory.Views;
+using Services.Inputs;
 using SO;
 
 namespace Canvases
 {
-    public class WindowModule
+    public class WindowModule : IDisposable
     {
+        private readonly InventoryScreenView _inventoryScreenView;
+        private readonly IInputService _input;
+        private readonly Hud _hud;
+        
+        private InventoryScreenView _inventoryScreen;
         private InventoryService _inventoryService;
+        private InventoryScreenController _screenController;
 
-        public WindowModule(InventoryData inventoryData, IGameFactory gameFactory) => 
-            CreateHeroInventory(inventoryData);
-
-        private void CreateHeroInventory(InventoryData inventoryData)
+        public WindowModule(InventoryData inventoryData, InventoryScreenView inventoryScreenView, Hud hud,
+            IInputService input)
         {
-            var gameStateProvider = new GameStatePlayerPrefsProvider(inventoryData);
+            _input = input;
+            _hud = hud;
+            
+            _inventoryScreenView = inventoryScreenView;
+            EntryPointInventory(inventoryData);
+            
+            _hud.OpenedInventory += OnOpenedInventory;
+        }
+
+        public void Dispose() => 
+            _hud.OpenedInventory -= OnOpenedInventory;
+
+        private void OnOpenedInventory(string ownerID)
+        {
+            _inventoryScreenView.Closed += InventoryScreenViewOnClosed;
+            _screenController.OpenInventory(ownerID);
+        }
+
+        private void InventoryScreenViewOnClosed()
+        {
+            _input.OnControls();
+            _inventoryScreenView.Closed -= InventoryScreenViewOnClosed;
+        }
+
+        private void EntryPointInventory(InventoryData inventoryData)
+        {
+            var gameStateProvider = new InventoryStateProvider(inventoryData);
+
             gameStateProvider.LoadGameState();
 
             _inventoryService = new InventoryService(gameStateProvider);
-            var gameState = gameStateProvider.GameState;
+            
+            var inventories = gameStateProvider.GameState.Inventories;
 
-            foreach (InventoryGridData inventory in gameState.Inventories)
+            foreach (InventoryGridData inventory in inventories) 
                 _inventoryService.RegisterInventory(inventory);
+
+            _screenController = new InventoryScreenController(_inventoryService, _inventoryScreenView);
         }
     }
 }

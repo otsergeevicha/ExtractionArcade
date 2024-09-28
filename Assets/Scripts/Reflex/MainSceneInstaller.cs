@@ -29,25 +29,28 @@ namespace Reflex
         public void InstallBindings(ContainerBuilder descriptor) => 
             descriptor.OnContainerBuilt += LoadLevel;
 
+        protected override void OnDisabled() => 
+            _windowModule.Dispose();
+
         private void LoadLevel(Container container)
         {
             _input = container.Single<IInputService>();
             _gameFactory = container.Single<IGameFactory>();
 
-            _coroutines = new GameObject("[COROUTINES]").AddComponent<Coroutines>();
+            _coroutines = new GameObject(Constants.NameCoroutines).AddComponent<Coroutines>();
             
             CreateGame();
         }
 
         private void CreateGame()
         {
-            _windowModule = new WindowModule(_inventoryData, _gameFactory);
-            
             _camera = _gameFactory.CreateMainCamera();
             _hero = _gameFactory.CreateHero();
             _hud = _gameFactory.CreateHud();
             _environs = _gameFactory.CreatePlane();
 
+            _windowModule = new WindowModule(_inventoryData, _gameFactory.CreateInventoryScreen(), _hud, _input);
+            
             Injects();
         }
 

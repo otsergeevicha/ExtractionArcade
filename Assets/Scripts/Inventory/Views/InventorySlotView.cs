@@ -15,7 +15,7 @@ namespace Inventory.Views
             get => 
                 _textTitle.text;
             set => 
-                _textAmount.text = value;
+                _textTitle.text = value;
         }
 
         public int Amount

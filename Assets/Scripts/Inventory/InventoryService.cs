@@ -19,7 +19,7 @@ namespace Inventory
         {
             var inventory = new InventoryGrid(inventoryData);
             _inventoriesMap[inventory.OwnerId] = inventory;
-
+            
             return inventory;
         }
 

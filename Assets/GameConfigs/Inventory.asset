@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Inventories:
   - OwnerId: Hero
-    Slots: []
+    Slots:
+    - Icon: {fileID: 0}
+      ItemId: Juce
+      Amount: 2
     Size: {x: 3, y: 3}
-  - OwnerId: Chest
-    Slots: []
-    Size: {x: 2, y: 2}
