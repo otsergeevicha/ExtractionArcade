@@ -8,7 +8,7 @@ namespace Inventory.ReadOnly
         event Action<Vector2Int> SizeChanged;
 
         Vector2Int Size { get; }
-
+        Sprite GetDefaultIcon { get; }
         IReadOnlyInventorySlot[,] GetSlots();
     }
 }

@@ -8,7 +8,8 @@ namespace Inventory.Data
     public class InventoryGridData
     {
         public string OwnerId;
-        public List<InventorySlotData> Slots;
         public Vector2Int Size;
+        public Sprite DefaultIcon;
+        public List<InventorySlotData> Slots;
     }
 }

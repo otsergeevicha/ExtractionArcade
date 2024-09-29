@@ -15,7 +15,7 @@ namespace Reflex
     {
         [SerializeField] private HeroData _heroData;
         [SerializeField] private InventoryData _inventoryData;
-        
+
         private IInputService _input;
         private IGameFactory _gameFactory;
         
@@ -49,7 +49,7 @@ namespace Reflex
             _hud = _gameFactory.CreateHud();
             _environs = _gameFactory.CreatePlane();
 
-            _windowModule = new WindowModule(_inventoryData, _gameFactory.CreateInventoryScreen(), _hud, _input);
+            _windowModule = new WindowModule(_inventoryData.Inventories.AsReadOnly(), _gameFactory.CreateInventoryScreen(), _hud, _input);
             
             Injects();
         }
@@ -61,4 +61,4 @@ namespace Reflex
             _hud.Construct(_coroutines, _camera.GetCacheCamera, _input, _hero.HeroModule);
         }
     }
-}
+} 

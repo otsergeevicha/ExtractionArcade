@@ -1,6 +1,7 @@
 ﻿using System;
 using Inventory.Data;
 using Inventory.ReadOnly;
+using UnityEngine;
 
 namespace Inventory
 {
@@ -13,7 +14,21 @@ namespace Inventory
 
         public event Action<string> ItemIdChanged;
         public event Action<int> ItemAmountChanged;
+        public event Action<Sprite> ItemIconChanged;
 
+        public Sprite Icon
+        {
+            get => _data.Icon;
+            set
+            {
+                if (_data.Icon != value)
+                {
+                    _data.Icon = value;
+                    ItemIconChanged?.Invoke(value);
+                }
+            }
+        }
+        
         public string ItemId
         {
             get => _data.ItemId;

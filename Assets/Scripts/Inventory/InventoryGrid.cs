@@ -9,7 +9,6 @@ namespace Inventory
 {
     public class InventoryGrid : IReadOnlyInventoryGrid
     {
-        private const int MaxCapacityInSlot = 99;
         private readonly InventoryGridData _data;
         private readonly Dictionary<Vector2Int, InventorySlot> _slotsMap = new();
 
@@ -39,10 +38,14 @@ namespace Inventory
 
         public string OwnerId =>
             _data.OwnerId;
+        
+        public Sprite GetDefaultIcon 
+            => _data.DefaultIcon;
 
-        public AddItemsToInventoryGridResult AddItems(string itemId, int amount = 1)
+        public AddItemsToInventoryGridResult AddItems(string itemId, Sprite icon, int amount = 1)
         {
             var remainingAmount = amount;
+            
             var itemsAddedToSlotsWithSameItemsAmount =
                 AddToSlotsWithSameItems(itemId, remainingAmount, out remainingAmount);
 
@@ -50,13 +53,14 @@ namespace Inventory
                 return new AddItemsToInventoryGridResult(OwnerId, amount, itemsAddedToSlotsWithSameItemsAmount);
 
             var itemsAddedToAvailableSlotAmount =
-                AddToFirstAvailableSlots(itemId, remainingAmount, out remainingAmount);
+                AddToFirstAvailableSlots(itemId, remainingAmount, icon, out remainingAmount);
+            
             var totalAddedItemsAmount = itemsAddedToSlotsWithSameItemsAmount + itemsAddedToAvailableSlotAmount;
 
             return new AddItemsToInventoryGridResult(OwnerId, amount, totalAddedItemsAmount);
         }
 
-        public AddItemsToInventoryGridResult AddItems(Vector2Int slotCoordinate, string itemId, int amount = 1)
+        public AddItemsToInventoryGridResult AddItems(Vector2Int slotCoordinate, string itemId, Sprite icon, int amount = 1)
         {
             var slot = _slotsMap[slotCoordinate];
             int newValue = slot.Amount + amount;
@@ -64,6 +68,9 @@ namespace Inventory
 
             if (slot.IsEmpty)
                 slot.ItemId = itemId;
+
+            if (slot.Icon == null) 
+                slot.Icon = icon;
 
             int itemSlotCapacity = GetItemSlotCapacity(itemId);
 
@@ -74,7 +81,7 @@ namespace Inventory
                 itemsAddedAmount += itemsToAddAmount;
                 slot.Amount = itemSlotCapacity;
 
-                var result = AddItems(itemId, remainingItems);
+                var result = AddItems(itemId, icon, remainingItems);
                 itemsAddedAmount += result.ItemsAddedAmount;
             }
             else
@@ -106,7 +113,7 @@ namespace Inventory
                     if (amountToRemove > slot.Amount)
                     {
                         amountToRemove -= slot.Amount;
-                        RemoveItems(slotCoordinate, itemId, slot.Amount);
+                        RemoveItems(slotCoordinate, itemId, amountToRemove);
                     }
                     else
                     {
@@ -129,7 +136,10 @@ namespace Inventory
             slot.Amount -= amount;
 
             if (slot.Amount == 0)
+            {
                 slot.ItemId = null;
+                slot.Icon = _data.DefaultIcon;
+            }
 
             return new RemoveItemsFromInventoryGridResult(OwnerId, amount, true);
         }
@@ -139,12 +149,15 @@ namespace Inventory
             var slotA = _slotsMap[slotCoordinateA];
             var slotB = _slotsMap[slotCoordinateB];
 
+            Sprite tempIcon = slotA.Icon;
             string tempSlotItemId = slotA.ItemId;
             int tempSlotItemAmount = slotA.Amount;
 
+            slotA.Icon = slotB.Icon;
             slotA.ItemId = slotB.ItemId;
             slotA.Amount = slotB.Amount;
 
+            slotB.Icon = tempIcon;
             slotB.ItemId = tempSlotItemId;
             slotB.Amount = tempSlotItemAmount;
         }
@@ -199,9 +212,9 @@ namespace Inventory
         }
 
         private int GetItemSlotCapacity(string itemId) =>
-            MaxCapacityInSlot;
+            Constants.MaxCapacitySlot;
 
-        private int AddToFirstAvailableSlots(string itemId, int amount, out int remainingAmount)
+        private int AddToFirstAvailableSlots(string itemId, int amount, Sprite icon, out int remainingAmount)
         {
             var itemsAddedAmount = 0;
             remainingAmount = amount;
@@ -217,6 +230,8 @@ namespace Inventory
                         continue;
 
                     slot.ItemId = itemId;
+                    slot.Icon = icon;
+                    
                     int newValue = remainingAmount;
                     int slotItemCapacity = GetItemSlotCapacity(slot.ItemId);
 

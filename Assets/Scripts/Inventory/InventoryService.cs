@@ -23,20 +23,20 @@ namespace Inventory
             return inventory;
         }
 
-        public AddItemsToInventoryGridResult AddItemsToInventory(string ownerId, string itemId, int amount = 1)
+        public AddItemsToInventoryGridResult AddItemsToInventory(string ownerId, string itemId, Sprite icon, int amount = 1)
         {
             var inventory = _inventoriesMap[ownerId];
-            var result = inventory.AddItems(itemId, amount);
+            var result = inventory.AddItems(itemId, icon, amount);
             
             _gameStateSaver.SaveGameState();
             return result;
         }
 
         public AddItemsToInventoryGridResult AddItemsToInventory(string ownerId, Vector2Int slotCoordinate,
-            string itemId, int amount = 1)
+            string itemId, Sprite icon, int amount = 1)
         {
             var inventory = _inventoriesMap[ownerId];
-            var result = inventory.AddItems(slotCoordinate, itemId, amount);
+            var result = inventory.AddItems(slotCoordinate, itemId, icon, amount);
             
             _gameStateSaver.SaveGameState();
             return result;

@@ -22,7 +22,7 @@ namespace Inventory.Controllers
                     int index = i * lineLength + j;
                     var slotView = view.GetInventorySlotView(index);
                     var slot = slots[i, j];
-                    _slotsController.Add(new InventorySlotController(slot, slotView));
+                    _slotsController.Add(new InventorySlotController(slot, slotView, inventory.GetDefaultIcon));
                 }
             }
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Inventory.Data;
 using SO;
 using UnityEngine;
@@ -7,10 +8,10 @@ namespace Inventory.SaveLoad
 {
     public class InventoryStateProvider : IGameStateProvider, IGameStateSaver
     {
-        private readonly InventoryData _inventoryData;
+        private readonly IReadOnlyList<InitConfigInventoryGrid> _configInventoryGrids;
 
-        public InventoryStateProvider(InventoryData inventoryData) =>
-            _inventoryData = inventoryData;
+        public InventoryStateProvider(IReadOnlyList<InitConfigInventoryGrid> configInventoryGrids) =>
+            _configInventoryGrids = configInventoryGrids;
 
         public GameStateData GameState { get; private set; }
 
@@ -25,29 +26,46 @@ namespace Inventory.SaveLoad
             }
         }
 
-        private GameStateData InitFromSettings() =>
-            new ()
-            {
-                Inventories = new List<InventoryGridData>
-                {
-                    CreateInventory(_inventoryData.Inventories[0].OwnerId, _inventoryData.Inventories[0].Size)
-                }
-            };
-
-        public void SaveGameState() => 
+        public void SaveGameState() =>
             PlayerPrefs.SetString(Constants.InventoryKey, JsonUtility.ToJson(GameState));
 
-        private InventoryGridData CreateInventory(string ownerId, Vector2Int size)
+        private GameStateData InitFromSettings()
         {
-            List<InventorySlotData> createdInventorySlots = _inventoryData.Inventories[0].Slots;
+            List<InventoryGridData> inventoryData = new List<InventoryGridData>();
+
+            foreach (InitConfigInventoryGrid currentInventoryConfig in _configInventoryGrids)
+            {
+                InventoryGridData newInventoryGridData = new InventoryGridData
+                {
+                    OwnerId = currentInventoryConfig.OwnerId,
+                    Size = currentInventoryConfig.Size,
+                    DefaultIcon = currentInventoryConfig.DefaultIcon,
+                    Slots = new List<InventorySlotData>(currentInventoryConfig.Slots)
+                };
+                
+                inventoryData.Add(newInventoryGridData);
+            }
+
+            return new()
+            {
+                Inventories = inventoryData.Select(inventory =>
+                    CreateInventory(inventory.OwnerId, inventory.DefaultIcon, inventory.Size, inventory.Slots)).ToList()
+            };
+        }
+
+        private InventoryGridData CreateInventory(string ownerId, Sprite defaultIcon, Vector2Int size,
+            List<InventorySlotData> slots)
+        {
+            List<InventorySlotData> createdInventorySlots = slots;
             int length = size.x * size.y;
 
-            for (int i = 0; i < length; i++) 
+            for (int i = 0; i < length; i++)
                 createdInventorySlots.Add(new InventorySlotData());
-            
+
             var createdInventoryData = new InventoryGridData
             {
                 OwnerId = ownerId,
+                DefaultIcon = defaultIcon,
                 Size = size,
                 Slots = createdInventorySlots
             };

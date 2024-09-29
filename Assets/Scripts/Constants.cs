@@ -3,6 +3,7 @@
     //cash
     public const string NameCoroutines = "[COROUTINES]";
     public const int MinHealth = 0;
+    public const int MaxCapacitySlot = 99;
     
     //save Load
     public const string Progress = "Progress";
