@@ -1,5 +1,7 @@
 ﻿using Canvases;
 using GameCamera;
+using Infrastructure.Factory.Pools;
+using Inventory.Items;
 using Inventory.Views;
 using Player;
 using Services.Assets;
@@ -34,5 +36,13 @@ namespace Infrastructure.Factory
         public InventoryScreenView CreateInventoryScreen() => 
             _assetsProvider.InstantiateEntity(Constants.InventoryScreenPath)
                 .GetComponent<InventoryScreenView>();
+
+        public Pool CreatePool() =>
+            _assetsProvider.InstantiateEntity(Constants.PoolPath)
+                .GetComponent<Pool>();
+
+        public PickUpItem CreateItem() =>
+            _assetsProvider.InstantiateEntity(Constants.ItemPath)
+                .GetComponent<PickUpItem>();
     }
 }

@@ -212,7 +212,7 @@ namespace Inventory
         }
 
         private int GetItemSlotCapacity(string itemId) =>
-            Constants.MaxCapacitySlot;
+            InventoryConstants.MaxCapacitySlot;
 
         private int AddToFirstAvailableSlots(string itemId, int amount, Sprite icon, out int remainingAmount)
         {

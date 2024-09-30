@@ -3,11 +3,9 @@
     //cash
     public const string NameCoroutines = "[COROUTINES]";
     public const int MinHealth = 0;
-    public const int MaxCapacitySlot = 99;
     
     //save Load
     public const string Progress = "Progress";
-    public const string InventoryKey = "InventoryKey";
         
     //scenes name
     public const string MainScene = "Main";
@@ -18,4 +16,6 @@
     public const string InventoryScreenPath = "Canvases/Inventory";
     public const string EnvironsPath = "House/Environs";
     public const string HeroPath = "Player/Hero";
+    public const string PoolPath = "Pools/Pool";
+    public const string ItemPath = "Loots/PickUpItem";
 }

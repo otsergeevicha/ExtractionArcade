@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Inventory.Config;
 using Inventory.Data;
 using SO;
 using UnityEngine;
@@ -17,8 +18,8 @@ namespace Inventory.SaveLoad
 
         public void LoadGameState()
         {
-            if (PlayerPrefs.HasKey(Constants.InventoryKey))
-                GameState = JsonUtility.FromJson<GameStateData>(PlayerPrefs.GetString(Constants.InventoryKey));
+            if (PlayerPrefs.HasKey(InventoryConstants.InventoryKey))
+                GameState = JsonUtility.FromJson<GameStateData>(PlayerPrefs.GetString(InventoryConstants.InventoryKey));
             else
             {
                 GameState = InitFromSettings();
@@ -27,7 +28,7 @@ namespace Inventory.SaveLoad
         }
 
         public void SaveGameState() =>
-            PlayerPrefs.SetString(Constants.InventoryKey, JsonUtility.ToJson(GameState));
+            PlayerPrefs.SetString(InventoryConstants.InventoryKey, JsonUtility.ToJson(GameState));
 
         private GameStateData InitFromSettings()
         {

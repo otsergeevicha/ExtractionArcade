@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Inventory;
+using Inventory.Config;
 using Inventory.Controllers;
 using Inventory.Data;
 using Inventory.SaveLoad;
@@ -54,16 +55,13 @@ namespace Canvases
         private void EntryPointInventory(IReadOnlyList<InitConfigInventoryGrid> inventoryData)
         {
             var gameStateProvider = new InventoryStateProvider(inventoryData);
-
             gameStateProvider.LoadGameState();
-
             _inventoryService = new InventoryService(gameStateProvider);
-            
             var inventories = gameStateProvider.GameState.Inventories;
-
+            
             foreach (InventoryGridData inventory in inventories) 
                 _inventoryService.RegisterInventory(inventory);
-
+            
             _screenController = new InventoryScreenController(_inventoryService, _inventoryScreenView);
         }
     }
