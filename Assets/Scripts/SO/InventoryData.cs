@@ -14,7 +14,7 @@ namespace SO
     [Serializable]
     public class InitConfigInventoryGrid
     {
-        public string OwnerId;
+        public string OwnerID;
         public Vector2Int Size;
         public Sprite DefaultIcon;
         public List<InventorySlotData> Slots;

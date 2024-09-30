@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792fe55cae3844e380a913e740c75876, type: 3}
   m_Name: Hero
   m_EditorClassIdentifier: 
-  MaxHealth: 1
+  MaxHealth: 5000
+  MaxStrength: 1
+  MaxEndurance: 1
+  MaxWisdom: 1
   Speed: 3
+  Blend: 1784438316

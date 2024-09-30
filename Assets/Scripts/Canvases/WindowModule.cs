@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Inventory;
 using Inventory.Controllers;
 using Inventory.Data;
@@ -8,7 +7,6 @@ using Inventory.SaveLoad;
 using Inventory.Views;
 using Services.Inputs;
 using SO;
-using UnityEngine;
 
 namespace Canvases
 {
@@ -22,7 +20,8 @@ namespace Canvases
         private InventoryService _inventoryService;
         private InventoryScreenController _screenController;
 
-        public WindowModule(IReadOnlyList<InitConfigInventoryGrid> inventoryData, InventoryScreenView inventoryScreenView, Hud hud,
+        public WindowModule(IReadOnlyList<InitConfigInventoryGrid> inventoryData,
+            InventoryScreenView inventoryScreenView, Hud hud,
             IInputService input)
         {
             _input = input;
@@ -33,6 +32,9 @@ namespace Canvases
             
             _hud.OpenedInventory += OnOpenedInventory;
         }
+
+        public InventoryService GetInventoryService =>
+            _inventoryService;
 
         public void Dispose() => 
             _hud.OpenedInventory -= OnOpenedInventory;

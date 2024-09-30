@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Player.Module;
 using R3;
 using Reflex;
@@ -10,7 +9,6 @@ namespace Canvases.Views
 {
     public class HeroHealthView
     {
-        private readonly IDisposable _disposable;
         private readonly HeroHealth _heroHealth;
         private readonly Slider _sliderView;
         private readonly Coroutines _coroutine;
@@ -23,20 +21,12 @@ namespace Canvases.Views
             _heroHealth = heroHealth;
             _coroutine = coroutine;
 
-            _disposable = _heroHealth.Health.Subscribe(UpdateHeroHealth);
-        }
-
-        public void Dispose()
-        {
-            if (_cashCoroutine != null)
-                _coroutine.StopCoroutine(_cashCoroutine);
-            
-            _disposable.Dispose();
+            _heroHealth.Health.Subscribe(UpdateHeroHealth);
         }
 
         private void UpdateHeroHealth(int value)    
         {
-            float targetValue = value / _heroHealth.MaxHealth;
+            float targetValue = (float)value / _heroHealth.MaxHealth;
 
             if (_cashCoroutine != null)
                 _coroutine.StopCoroutine(_cashCoroutine);

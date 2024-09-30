@@ -58,7 +58,7 @@ namespace Reflex
         {
             _camera.Construct(_hero.GetRootCamera);
             _hero.Construct(_input, _camera.GetCacheCamera, _heroData, _environs.GetHeroSpawnPoint);
-            _hud.Construct(_coroutines, _camera.GetCacheCamera, _input, _hero.HeroModule);
+            _hud.Construct(_coroutines, _camera.GetCacheCamera, _input, _hero.HeroModule, _windowModule.GetInventoryService);
         }
     }
 } 

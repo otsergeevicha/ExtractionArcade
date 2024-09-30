@@ -1,5 +1,6 @@
 ﻿using System;
 using Canvases.Views;
+using Inventory;
 using JoystickLogic;
 using Player.Module.Parent;
 using Plugins.MonoCache;
@@ -20,7 +21,8 @@ namespace Canvases
 
         public event Action<string> OpenedInventory;
         
-        public void Construct(Coroutines coroutine, Camera cashCamera, IInputService input, HeroModule heroModule)
+        public void Construct(Coroutines coroutine, Camera cashCamera, IInputService input, HeroModule heroModule,
+            InventoryService inventoryService)
         {
             _input = input;
             _joystick.Construct(cashCamera, input);
@@ -32,8 +34,5 @@ namespace Canvases
             OpenedInventory?.Invoke(ownerID);
             _input.OffControls();
         }
-
-        protected override void OnDisabled() => 
-            _heroHealthView.Dispose();
     }
 }

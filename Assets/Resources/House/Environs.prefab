@@ -708,6 +708,37 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &7513094931166558585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5234942621897151469}
+  m_Layer: 0
+  m_Name: ItemsSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5234942621897151469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7513094931166558585}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.4481384, y: -0, z: -0, w: 0.89396423}
+  m_LocalPosition: {x: -2.4352882, y: 0.632, z: 0.95529544}
+  m_LocalScale: {x: 0.8333332, y: 0.8333332, z: 0.8333332}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5621519839830911053}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8220303567319544341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,7 +1103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4447815735710598987}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: HeroSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1125,6 +1156,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4447815735710598987}
+  - {fileID: 5234942621897151469}
   - {fileID: 8476976559928603929}
   - {fileID: 8306563317081120406}
   - {fileID: 3260325419046523961}
@@ -2027,6 +2059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heroSpawnPoint: {fileID: 4447815735710598987}
+  _itemsSpawnPoint: {fileID: 5234942621897151469}
 --- !u!1 &9085143089851002813
 GameObject:
   m_ObjectHideFlags: 0

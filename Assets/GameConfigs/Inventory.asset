@@ -13,13 +13,7 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   Inventories:
-  - OwnerId: Hero
+  - OwnerID: Hero
     Size: {x: 3, y: 3}
-    DefaultIcon: {fileID: 21300000, guid: 293035c5231941749851e960f9f5adbe, type: 3}
-    Slots:
-    - Icon: {fileID: 21300000, guid: 2b4bce226c3bc154fb4ed922eae61643, type: 3}
-      ItemId: d
-      Amount: 21
-    - Icon: {fileID: 21300000, guid: 9d581a8b5f61dd7429bcd4cb680ff484, type: 3}
-      ItemId: 222sad
-      Amount: 21
+    DefaultIcon: {fileID: 21300000, guid: c35c1ca7291b188409cb55bcb0926b8c, type: 3}
+    Slots: []

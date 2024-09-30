@@ -13,6 +13,7 @@ namespace Player.Module
         {
             MaxHealth = maxHealth;
             _currentHealth = new ReactiveProperty<int>(maxHealth);
+            _currentHealth.Value /= 2;
         }
 
         public event Action Died;

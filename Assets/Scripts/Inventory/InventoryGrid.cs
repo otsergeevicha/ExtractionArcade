@@ -37,7 +37,7 @@ namespace Inventory
         public event Action<Vector2Int> SizeChanged;
 
         public string OwnerId =>
-            _data.OwnerId;
+            _data.OwnerID;
         
         public Sprite GetDefaultIcon 
             => _data.DefaultIcon;

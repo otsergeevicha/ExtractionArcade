@@ -37,7 +37,7 @@ namespace Inventory.SaveLoad
             {
                 InventoryGridData newInventoryGridData = new InventoryGridData
                 {
-                    OwnerId = currentInventoryConfig.OwnerId,
+                    OwnerID = currentInventoryConfig.OwnerID,
                     Size = currentInventoryConfig.Size,
                     DefaultIcon = currentInventoryConfig.DefaultIcon,
                     Slots = new List<InventorySlotData>(currentInventoryConfig.Slots)
@@ -49,7 +49,7 @@ namespace Inventory.SaveLoad
             return new()
             {
                 Inventories = inventoryData.Select(inventory =>
-                    CreateInventory(inventory.OwnerId, inventory.DefaultIcon, inventory.Size, inventory.Slots)).ToList()
+                    CreateInventory(inventory.OwnerID, inventory.DefaultIcon, inventory.Size, inventory.Slots)).ToList()
             };
         }
 
@@ -64,7 +64,7 @@ namespace Inventory.SaveLoad
 
             var createdInventoryData = new InventoryGridData
             {
-                OwnerId = ownerId,
+                OwnerID = ownerId,
                 DefaultIcon = defaultIcon,
                 Size = size,
                 Slots = createdInventorySlots
