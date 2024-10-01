@@ -16,4 +16,16 @@ MonoBehaviour:
   - OwnerID: Hero
     Size: {x: 3, y: 3}
     DefaultIcon: {fileID: 21300000, guid: 32e334504b88ffa469cde654906971b3, type: 3}
-    Slots: []
+    Slots:
+    - Item: 1
+      Amount: 14
+      Icon: {fileID: 21300000, guid: bcfc86f084f11084aa3ea0818f67122a, type: 3}
+    - Item: 2
+      Amount: 2
+      Icon: {fileID: 21300000, guid: ca8f53ae67b997e489ba530a7c0ea190, type: 3}
+    - Item: 3
+      Amount: 22
+      Icon: {fileID: 21300000, guid: cfcc959bcb606a446b94048712570f97, type: 3}
+    - Item: 4
+      Amount: 45
+      Icon: {fileID: 21300000, guid: cbfebabcca052fc46b36280ddfc4b075, type: 3}

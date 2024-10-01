@@ -10,7 +10,7 @@ namespace Player
         [SerializeField] private Animator _animator;
         [SerializeField] private Rigidbody _rigidbody;
 
-        private readonly float _rotationSpeed = 5.5f;
+        private readonly float _rotationSpeed = 1.5f;
         private float _speed;
 
 

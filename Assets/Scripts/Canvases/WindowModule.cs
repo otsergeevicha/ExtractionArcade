@@ -28,11 +28,6 @@ namespace Canvases
             InventoryScreenView inventoryScreenView, Hud hud,
             IInputService input, HeroModule heroModule)
         {
-            //
-            PlayerPrefs.DeleteAll();
-            Debug.Log("Убрать!");
-            //
-            
             _heroModule = heroModule;
             _input = input;
             _hud = hud;
