@@ -10,7 +10,7 @@ namespace Infrastructure.Factory.Pools
 
         public PoolItems(IGameFactory factory, TypeItem[] typeItems, int countItems)
         {
-            for (int i = 0; i < typeItems.Length; i++)
+            for (int i = 1; i < typeItems.Length; i++)
             {
                 for (int j = 0; j < countItems; j++)
                 {

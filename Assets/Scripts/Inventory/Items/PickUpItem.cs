@@ -38,8 +38,11 @@ namespace Inventory.Items
         public void SetCurrentType(TypeItem typeItem) =>
             _typeItem = typeItem;
 
-        public void OnActive() =>
+        public void OnActive(Vector3 newPosition)
+        {
+            transform.position = newPosition;
             gameObject.SetActive(true);
+        }
 
         public void InActive() =>
             gameObject.SetActive(false);

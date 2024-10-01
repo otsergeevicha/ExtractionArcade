@@ -1,5 +1,4 @@
-﻿using System;
-using Plugins.MonoCache;
+﻿using Plugins.MonoCache;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,8 +29,11 @@ namespace Inventory.Views
 
         public int Amount
         {
-            get => 
-                Convert.ToInt32(_textAmount.text);
+            get
+            {
+                int.TryParse(_textAmount.text, out var currentValue);
+                return currentValue;
+            }
             set => 
                 _textAmount.text = value == 0 
                     ? string.Empty

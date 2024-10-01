@@ -164,11 +164,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1470502258448416788}
         m_TargetAssemblyTypeName: Inventory.Views.InventoryScreenView, Assembly-CSharp
-        m_MethodName: UseItem
+        m_MethodName: Use
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5262897360730733181}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 3047272524032011896}
+          m_ObjectArgumentAssemblyTypeName: Inventory.Views.InventorySlotView, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1073,11 +1073,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1470502258448416788}
         m_TargetAssemblyTypeName: Inventory.Views.InventoryScreenView, Assembly-CSharp
-        m_MethodName: UseItem
+        m_MethodName: Use
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 6095777369490673493}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 2962904695610249215}
+          m_ObjectArgumentAssemblyTypeName: Inventory.Views.InventorySlotView, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1685,11 +1685,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1470502258448416788}
         m_TargetAssemblyTypeName: Inventory.Views.InventoryScreenView, Assembly-CSharp
-        m_MethodName: UseItem
+        m_MethodName: Use
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2571342510377428858}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 1189758569144585444}
+          m_ObjectArgumentAssemblyTypeName: Inventory.Views.InventorySlotView, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2546,6 +2546,8 @@ GameObject:
   - component: {fileID: 953852999688503690}
   - component: {fileID: 6745714444545449876}
   - component: {fileID: 7830772926568702450}
+  - component: {fileID: 401416653011847521}
+  - component: {fileID: 7469402052297623582}
   m_Layer: 5
   m_Name: InventoryGrid
   m_TagString: Untagged
@@ -2613,6 +2615,46 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 50}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!223 &401416653011847521
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2297825652502357605}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &7469402052297623582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2297825652502357605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &2548406644145049107
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,11 +3235,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1470502258448416788}
         m_TargetAssemblyTypeName: Inventory.Views.InventoryScreenView, Assembly-CSharp
-        m_MethodName: UseItem
+        m_MethodName: Use
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5253204822468840353}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 7844187832794731562}
+          m_ObjectArgumentAssemblyTypeName: Inventory.Views.InventorySlotView, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3367,11 +3409,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1470502258448416788}
         m_TargetAssemblyTypeName: Inventory.Views.InventoryScreenView, Assembly-CSharp
-        m_MethodName: UseItem
+        m_MethodName: Use
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 6980517301301012302}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 4732001219693166078}
+          m_ObjectArgumentAssemblyTypeName: Inventory.Views.InventorySlotView, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4079,11 +4121,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1470502258448416788}
         m_TargetAssemblyTypeName: Inventory.Views.InventoryScreenView, Assembly-CSharp
-        m_MethodName: UseItem
+        m_MethodName: Use
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 547265033084654714}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 3238777969013406573}
+          m_ObjectArgumentAssemblyTypeName: Inventory.Views.InventorySlotView, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4805,6 +4847,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1431714828208647878}
   - component: {fileID: 7645235827053003942}
+  - component: {fileID: 7752560837329313103}
+  - component: {fileID: 4552396822180318144}
+  - component: {fileID: 8611838209641365431}
   m_Layer: 5
   m_Name: InventoryView
   m_TagString: Untagged
@@ -4855,6 +4900,54 @@ MonoBehaviour:
   - {fileID: 7844187832794731562}
   - {fileID: 2819265597426251083}
   _textOwner: {fileID: 9182393181350030378}
+--- !u!222 &7752560837329313103
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5811936244409013722}
+  m_CullTransparentMesh: 1
+--- !u!223 &4552396822180318144
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5811936244409013722}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &8611838209641365431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5811936244409013722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &6042299733740563964
 GameObject:
   m_ObjectHideFlags: 0
@@ -5575,11 +5668,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1470502258448416788}
         m_TargetAssemblyTypeName: Inventory.Views.InventoryScreenView, Assembly-CSharp
-        m_MethodName: UseItem
+        m_MethodName: Use
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 425650999967669344}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 8892378715130681925}
+          m_ObjectArgumentAssemblyTypeName: Inventory.Views.InventorySlotView, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6480,11 +6573,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1470502258448416788}
         m_TargetAssemblyTypeName: Inventory.Views.InventoryScreenView, Assembly-CSharp
-        m_MethodName: UseItem
+        m_MethodName: Use
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 175453845577500837}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 2819265597426251083}
+          m_ObjectArgumentAssemblyTypeName: Inventory.Views.InventorySlotView, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6654,11 +6747,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1470502258448416788}
         m_TargetAssemblyTypeName: Inventory.Views.InventoryScreenView, Assembly-CSharp
-        m_MethodName: UseItem
+        m_MethodName: Use
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 6031479104423339216}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 9174911498113540090}
+          m_ObjectArgumentAssemblyTypeName: Inventory.Views.InventorySlotView, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

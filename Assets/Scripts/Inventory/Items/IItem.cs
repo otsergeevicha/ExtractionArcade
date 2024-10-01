@@ -9,7 +9,7 @@ namespace Inventory.Items
         TypeItem Use();
         string GetName();
         void SetCurrentType(TypeItem typeItem);
-        void OnActive();
+        void OnActive(Vector3 newPosition);
         void InActive();
     }
 }

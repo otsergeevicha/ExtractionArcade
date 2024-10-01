@@ -4,10 +4,12 @@ using Inventory;
 using Inventory.Config;
 using Inventory.Controllers;
 using Inventory.Data;
+using Inventory.Items;
 using Inventory.SaveLoad;
 using Inventory.Views;
+using Player.Module.Parent;
 using Services.Inputs;
-using SO;
+using UnityEngine;
 
 namespace Canvases
 {
@@ -16,6 +18,7 @@ namespace Canvases
         private readonly InventoryScreenView _inventoryScreenView;
         private readonly IInputService _input;
         private readonly Hud _hud;
+        private readonly HeroModule _heroModule;
         
         private InventoryScreenView _inventoryScreen;
         private InventoryService _inventoryService;
@@ -23,8 +26,14 @@ namespace Canvases
 
         public WindowModule(IReadOnlyList<InitConfigInventoryGrid> inventoryData,
             InventoryScreenView inventoryScreenView, Hud hud,
-            IInputService input)
+            IInputService input, HeroModule heroModule)
         {
+            //
+            PlayerPrefs.DeleteAll();
+            Debug.Log("Убрать!");
+            //
+            
+            _heroModule = heroModule;
             _input = input;
             _hud = hud;
             
@@ -32,13 +41,32 @@ namespace Canvases
             EntryPointInventory(inventoryData);
             
             _hud.OpenedInventory += OnOpenedInventory;
+            _inventoryScreenView.UseItem += InventoryOnUseItem;
+            _hud.UsedItem += PickUpUsedItem;
         }
 
         public InventoryService GetInventoryService =>
             _inventoryService;
 
-        public void Dispose() => 
+        private void PickUpUsedItem(PickUpItem pickUpItem) => 
+            _heroModule.UseItem(pickUpItem.PickUp());
+
+        private void InventoryOnUseItem(string slot)
+        {
+            if (Enum.TryParse<TypeItem>(slot.Replace(InventoryConstants.NewValue,
+                    InventoryConstants.OldValue), out TypeItem item))
+            {
+                _heroModule.UseItem(item);
+                _inventoryService.RemoveItems("Hero", slot);
+            }
+        }
+
+        public void Dispose()
+        {
             _hud.OpenedInventory -= OnOpenedInventory;
+            _inventoryScreenView.UseItem -= InventoryOnUseItem;
+            _hud.UsedItem -= PickUpUsedItem;
+        }
 
         private void OnOpenedInventory(string ownerID)
         {

@@ -177,7 +177,6 @@ GameObject:
   - component: {fileID: 3063163550254652872}
   - component: {fileID: 3063163550256049044}
   - component: {fileID: 3063163550257014962}
-  - component: {fileID: 3054783187934298712}
   m_Layer: 0
   m_Name: HealthKit
   m_TagString: Untagged
@@ -252,28 +251,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3054783187934298712
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3063163550255011586}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43940882462733256, guid: 94af02462093e8840bb4b085856d4c58, type: 2}
 --- !u!1 &5010526595575526419
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2887465795489879669}
   - component: {fileID: 3707066050317964095}
+  - component: {fileID: 4094036557409032115}
   m_Layer: 0
   m_Name: PickUpItem
   m_TagString: Untagged
@@ -320,3 +298,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _typeItem: 0
+--- !u!135 &4094036557409032115
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5010526595575526419}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.25
+  m_Center: {x: 0, y: 0, z: 0}
