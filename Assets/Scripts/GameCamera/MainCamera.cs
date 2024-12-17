@@ -1,11 +1,10 @@
-﻿using System;
-using Cinemachine;
+﻿using Cinemachine;
 using Plugins.MonoCache;
-using Services.Inputs;
 using UnityEngine;
 
 namespace GameCamera
 {
+    
     public class MainCamera : MonoCache
     {
         [SerializeField] private Camera _camera;

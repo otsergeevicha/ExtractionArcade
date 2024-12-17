@@ -1,5 +1,10 @@
-﻿using Player.Module.Parent;
+﻿using System;
+using Infrastructure.Factory;
 using Plugins.MonoCache;
+using Reflex.Attributes;
+using Reflex.Core;
+using Reflex.Extensions;
+using Reflex.Injectors;
 using Services.Inputs;
 using SO;
 using UnityEngine;
@@ -11,8 +16,11 @@ namespace Player
     {
         [SerializeField] private Transform _rootCamera;
         [SerializeField] private HeroMovement _heroMovement;
+
+        [Inject] private IInputService _input;
         
-        public HeroModule HeroModule { get; private set; }
+        private void Start() => 
+            GameObjectInjector.InjectSingle(gameObject, gameObject.scene.GetSceneContainer());
 
         public Transform GetRootCamera =>
             _rootCamera;
@@ -21,8 +29,6 @@ namespace Player
             Vector3 newPoint)
         {
             SetPosition(newPoint);
-            
-            HeroModule = new HeroModule(heroData);
             _heroMovement.Construct(input, cacheCamera, heroData.Speed, heroData.Blend);
         }
 

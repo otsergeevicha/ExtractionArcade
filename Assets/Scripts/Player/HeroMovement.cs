@@ -7,7 +7,7 @@ namespace Player
 {
     public class HeroMovement : MonoCache
     {
-        [SerializeField] private Animator _animator;
+      //  [SerializeField] private Animator _animator;
         [SerializeField] private Rigidbody _rigidbody;
 
         private readonly float _rotationSpeed = 1.5f;
@@ -29,33 +29,33 @@ namespace Player
 
         private void OnValidate()
         {
-            _animator ??= Get<Animator>();
+           // _animator ??= Get<Animator>();
             _rigidbody ??= Get<Rigidbody>();
         }
 
         protected override void FixedUpdateCached()
         {
-            Vector3 movementDirection = Vector3.zero;
-            _animator.SetFloat(_hashBlend, _input.MoveAxis.sqrMagnitude);
-
-            if (_input.MoveAxis.sqrMagnitude > Single.Epsilon)
-            {
-                if (Mathf.Approximately(_input.MoveAxis.y, -1f))
-                {
-                    movementDirection = -_camera.transform.forward;
-                }
-                else
-                {
-                    movementDirection =
-                        _camera.transform.TransformDirection(new Vector3(_input.MoveAxis.x, Single.Epsilon,
-                            _input.MoveAxis.y));
-                }
-
-                movementDirection.y = 0f;
-                _rigidbody.MovePosition(transform.position + movementDirection.normalized * (_speed * Time.deltaTime));
-            }
-
-            Rotate(movementDirection);
+           //  Vector3 movementDirection = Vector3.zero;
+           // // _animator.SetFloat(_hashBlend, _input.MoveAxis.sqrMagnitude);
+           //
+           //  if (_input.MoveAxis.sqrMagnitude > Single.Epsilon)
+           //  {
+           //      if (Mathf.Approximately(_input.MoveAxis.y, -1f))
+           //      {
+           //          movementDirection = -_camera.transform.forward;
+           //      }
+           //      else
+           //      {
+           //          movementDirection =
+           //              _camera.transform.TransformDirection(new Vector3(_input.MoveAxis.x, Single.Epsilon,
+           //                  _input.MoveAxis.y));
+           //      }
+           //
+           //      movementDirection.y = 0f;
+           //      _rigidbody.MovePosition(transform.position + movementDirection.normalized * (_speed * Time.deltaTime));
+           //  }
+           //
+           //  Rotate(movementDirection);
         }
 
         protected override void OnDisabled() =>

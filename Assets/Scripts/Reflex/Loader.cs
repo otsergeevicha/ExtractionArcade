@@ -1,18 +1,19 @@
 ﻿using Plugins.MonoCache;
 using Reflex.Core;
-using UnityEngine.SceneManagement;
+using UnityEngine.AddressableAssets;
 
 namespace Reflex
 {
     public class Loader : MonoCache
     {
-        private void Start() => 
-            LaunchGame();
-
-        private void LaunchGame()
+        private void Start()
         {
-            Scene scene = SceneManager.LoadScene(Constants.MainScene, new LoadSceneParameters(LoadSceneMode.Single));
-            ReflexSceneManager.PreInstallScene(scene, builder => builder.AddSingleton(""));
+            Addressables.LoadSceneAsync(Constants.MainScene, activateOnLoad: false)
+                .Completed += handle =>
+            {
+                ReflexSceneManager.PreInstallScene(handle.Result.Scene, builder => builder.AddSingleton(Constants.MainScene));
+                handle.Result.ActivateAsync();
+            };
         }
     }
 }
