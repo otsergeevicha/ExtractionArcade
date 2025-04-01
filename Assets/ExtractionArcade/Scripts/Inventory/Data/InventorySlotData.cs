@@ -2,7 +2,7 @@
 using Inventory.Items;
 using UnityEngine;
 
-namespace Inventory.Data
+namespace ExtractionArcade.Scripts.Inventory.Data
 {
     [Serializable]
     public class InventorySlotData

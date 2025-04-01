@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Inventory.Data;
+using ExtractionArcade.Scripts.Inventory.Data;
 
-namespace Inventory.SaveLoad
+namespace ExtractionArcade.Scripts.Inventory.SaveLoad
 {
     public class GameStateData
     {

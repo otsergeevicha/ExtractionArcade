@@ -1,9 +1,9 @@
 ﻿using System;
-using Inventory.Data;
-using Inventory.ReadOnly;
+using ExtractionArcade.Scripts.Inventory.Data;
+using ExtractionArcade.Scripts.Inventory.ReadOnly;
 using UnityEngine;
 
-namespace Inventory
+namespace ExtractionArcade.Scripts.Inventory
 {
     public class InventorySlot : IReadOnlyInventorySlot
     {

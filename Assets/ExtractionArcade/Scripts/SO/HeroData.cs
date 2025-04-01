@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SO
+namespace ExtractionArcade.Scripts.SO
 {
     [CreateAssetMenu(fileName = "NewHero", menuName = "Characters/Hero", order = 1)]
     public class HeroData : ScriptableObject

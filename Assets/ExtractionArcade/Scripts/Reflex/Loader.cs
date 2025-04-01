@@ -2,7 +2,7 @@
 using Reflex.Core;
 using UnityEngine.AddressableAssets;
 
-namespace Reflex
+namespace ExtractionArcade.Scripts.Reflex
 {
     public class Loader : MonoCache
     {

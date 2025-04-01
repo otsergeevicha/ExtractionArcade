@@ -2,7 +2,7 @@
 using Plugins.MonoCache;
 using UnityEngine;
 
-namespace Inventory.Views
+namespace ExtractionArcade.Scripts.Inventory.Views
 {
     public class InventoryScreenView : MonoCache
     {

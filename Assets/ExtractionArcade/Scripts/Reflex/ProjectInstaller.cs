@@ -1,20 +1,16 @@
-﻿using Infrastructure.Factory;
-using Inputs;
+﻿using ExtractionArcade.Scripts.Inputs;
+using ExtractionArcade.Scripts.Services.Inputs;
 using Plugins.MonoCache;
 using Reflex.Core;
-using Services.Inputs;
-using UnityEngine;
 
-namespace Reflex
+namespace ExtractionArcade.Scripts.Reflex
 {
     public class ProjectInstaller : MonoCache, IInstaller
     {
-        [SerializeField] private PrefabsHolder _prefabsHolder;
         
         public void InstallBindings(ContainerBuilder descriptor)
         {
             descriptor.AddSingleton(new InputService(), typeof(IInputService));
-            descriptor.AddSingleton(_prefabsHolder);
         }
     }
 }

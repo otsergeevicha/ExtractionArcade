@@ -1,5 +1,6 @@
 ﻿using System;
-using Player;
+using ExtractionArcade.Scripts.Inventory;
+using ExtractionArcade.Scripts.Player;
 using Plugins.MonoCache;
 using UnityEngine;
 

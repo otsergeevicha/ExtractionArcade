@@ -1,6 +1,6 @@
-﻿using Inventory.Views;
+﻿using ExtractionArcade.Scripts.Inventory.Views;
 
-namespace Inventory.Controllers
+namespace ExtractionArcade.Scripts.Inventory.Controllers
 {
     public class InventoryScreenController
     {

@@ -1,9 +1,9 @@
-﻿using Plugins.MonoCache;
-using Services.Inputs;
+﻿using ExtractionArcade.Scripts.Services.Inputs;
+using Plugins.MonoCache;
 using UnityEngine;
 using UnityEngine.InputSystem.OnScreen;
 
-namespace JoystickLogic
+namespace ExtractionArcade.Scripts.JoystickLogic
 {
     public enum VirtualJoystickType
     {

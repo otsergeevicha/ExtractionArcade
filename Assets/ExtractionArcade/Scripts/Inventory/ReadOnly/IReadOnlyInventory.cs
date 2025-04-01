@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Inventory.ReadOnly
+namespace ExtractionArcade.Scripts.Inventory.ReadOnly
 {
     public interface IReadOnlyInventory
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Services.Inputs
+namespace ExtractionArcade.Scripts.Services.Inputs
 {
     public interface IInputService
     {

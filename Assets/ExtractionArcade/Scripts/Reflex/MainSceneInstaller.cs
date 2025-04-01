@@ -1,27 +1,26 @@
-﻿using Infrastructure.Factory;
+﻿using ExtractionArcade.Scripts.Holders;
+using ExtractionArcade.Scripts.Infrastructure.Factory;
+using ExtractionArcade.Scripts.Player;
+using ExtractionArcade.Scripts.Services.Factory;
 using Plugins.MonoCache;
 using Reflex.Core;
-using Services.Factory;
+using Reflex.Injectors;
+using UnityEngine;
 
-namespace Reflex
+namespace ExtractionArcade.Scripts.Reflex
 {
     public class MainSceneInstaller : MonoCache, IInstaller
     {
-        private ContainerBuilder _descriptor;
-
+        [SerializeField] private PrefabsHolder _prefabHolder;
+        [SerializeField] private SpawnPointHolder _spawnPointHolder;
+        
+        
         public void InstallBindings(ContainerBuilder descriptor)
         {
-            _descriptor = descriptor;
-            descriptor.OnContainerBuilt += LoadLevel;
-        }
-
-        private void LoadLevel(Container container)
-        {
-            PrefabsHolder paths = container.Single<PrefabsHolder>();
-
             IGameFactory factory = new GameFactory();
             
-            _descriptor.AddSingleton(factory.CreateHero(paths.GetHero));
+            descriptor.AddSingleton(_spawnPointHolder, typeof(SpawnPointHolder));
+            descriptor.AddSingleton(factory.CreateHero(_prefabHolder.GetHero), typeof(Hero));
         }
     }
 }

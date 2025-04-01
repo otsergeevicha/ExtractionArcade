@@ -2,7 +2,7 @@
 using Plugins.MonoCache;
 using Reflex.Attributes;
 
-namespace Reflex
+namespace ExtractionArcade.Scripts.Reflex
 {
     public class Greeter : MonoCache
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Inventory.Data
+namespace ExtractionArcade.Scripts.Inventory.Data
 {
     [Serializable]
     public class InventoryGridData

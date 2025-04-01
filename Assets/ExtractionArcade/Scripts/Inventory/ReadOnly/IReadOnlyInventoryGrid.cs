@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Inventory.ReadOnly
+namespace ExtractionArcade.Scripts.Inventory.ReadOnly
 {
     public interface IReadOnlyInventoryGrid : IReadOnlyInventory
     {

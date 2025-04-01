@@ -1,8 +1,8 @@
-﻿using Inventory.ReadOnly;
-using Inventory.Views;
+﻿using ExtractionArcade.Scripts.Inventory.ReadOnly;
+using ExtractionArcade.Scripts.Inventory.Views;
 using UnityEngine;
 
-namespace Inventory.Controllers
+namespace ExtractionArcade.Scripts.Inventory.Controllers
 {
     public class InventorySlotController
     {

@@ -1,4 +1,7 @@
-﻿public static class Constants
+﻿namespace ExtractionArcade.Scripts
 {
-    public const string MainScene = "MainScene";
+    public static class Constants
+    {
+        public const string MainScene = "MainScene";
+    }
 }

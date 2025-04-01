@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Inventory.Data;
+using ExtractionArcade.Scripts.Inventory.Data;
 using UnityEngine;
 
-namespace Inventory.Config
+namespace ExtractionArcade.Scripts.Inventory.Config
 {
     [CreateAssetMenu(fileName = "Inventory", menuName = "Config/Inventory", order = 1)]
     public class InventoryData : ScriptableObject

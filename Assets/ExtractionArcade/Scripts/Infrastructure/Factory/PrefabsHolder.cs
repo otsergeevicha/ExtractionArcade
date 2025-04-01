@@ -1,8 +1,8 @@
-﻿using Player;
+﻿using ExtractionArcade.Scripts.Player;
 using Plugins.MonoCache;
 using UnityEngine;
 
-namespace Infrastructure.Factory
+namespace ExtractionArcade.Scripts.Infrastructure.Factory
 {
     public class PrefabsHolder : MonoCache
     {

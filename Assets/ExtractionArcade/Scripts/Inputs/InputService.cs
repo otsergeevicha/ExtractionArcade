@@ -1,8 +1,8 @@
 ﻿using System;
-using Services.Inputs;
+using ExtractionArcade.Scripts.Services.Inputs;
 using UnityEngine;
 
-namespace Inputs
+namespace ExtractionArcade.Scripts.Inputs
 {
     public class InputService : IInputService
     {

@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Inventory.Views
+namespace ExtractionArcade.Scripts.Inventory.Views
 {
     public class InventorySlotView : MonoCache
     {

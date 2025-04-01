@@ -1,13 +1,23 @@
-﻿using Plugins.MonoCache;
-using UnityEngine;
+﻿using ExtractionArcade.Scripts.Holders;
+using Plugins.MonoCache;
+using Reflex.Attributes;
+using Reflex.Extensions;
+using Reflex.Injectors;
 
-namespace Player
+namespace ExtractionArcade.Scripts.Player
 {
     public class Hero : MonoCache
     {
-        public void Start()
+        private SpawnPointHolder _spawnHolder;
+
+        [Inject]
+        private void Construct(SpawnPointHolder spawnHolder) =>
+            _spawnHolder = spawnHolder;
+
+        private void Start()
         {
-            transform.position = new Vector3(0f, 15f, 0f);
+            GameObjectInjector.InjectObject(gameObject, gameObject.scene.GetSceneContainer());
+            transform.position = _spawnHolder.Hero;
         }
     }
 }

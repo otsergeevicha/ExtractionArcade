@@ -1,6 +1,6 @@
-﻿using Player;
+﻿using ExtractionArcade.Scripts.Player;
 
-namespace Services.Factory
+namespace ExtractionArcade.Scripts.Services.Factory
 {
     public interface IGameFactory
     {

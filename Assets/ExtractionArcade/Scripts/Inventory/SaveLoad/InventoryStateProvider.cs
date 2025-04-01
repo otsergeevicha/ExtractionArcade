@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Inventory.Config;
-using Inventory.Data;
-using SO;
+using ExtractionArcade.Scripts.Inventory.Config;
+using ExtractionArcade.Scripts.Inventory.Data;
 using UnityEngine;
 
-namespace Inventory.SaveLoad
+namespace ExtractionArcade.Scripts.Inventory.SaveLoad
 {
     public class InventoryStateProvider : IGameStateProvider, IGameStateSaver
     {

@@ -1,4 +1,4 @@
-﻿namespace Inventory.SaveLoad
+﻿namespace ExtractionArcade.Scripts.Inventory.SaveLoad
 {
     public interface IGameStateSaver
     {

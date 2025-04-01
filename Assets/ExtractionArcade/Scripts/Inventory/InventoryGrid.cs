@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Inventory.Data;
-using Inventory.ReadOnly;
-using Inventory.Structs;
+using ExtractionArcade.Scripts.Inventory.Data;
+using ExtractionArcade.Scripts.Inventory.ReadOnly;
+using ExtractionArcade.Scripts.Inventory.Structs;
 using UnityEngine;
 
-namespace Inventory
+namespace ExtractionArcade.Scripts.Inventory
 {
     public class InventoryGrid : IReadOnlyInventoryGrid
     {

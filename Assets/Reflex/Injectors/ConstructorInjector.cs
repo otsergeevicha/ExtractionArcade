@@ -1,34 +1,40 @@
 using System;
-using Reflex.Buffers;
 using Reflex.Caching;
 using Reflex.Core;
 using Reflex.Exceptions;
+using Reflex.Pooling;
 
 namespace Reflex.Injectors
 {
     public static class ConstructorInjector
     {
+        [ThreadStatic]
+        private static SizeSpecificArrayPool<object> _arrayPool;
+        internal static SizeSpecificArrayPool<object> ArrayPool => _arrayPool ??= new SizeSpecificArrayPool<object>(maxLength: 16);
+        
         public static object Construct(Type concrete, Container container)
         {
             var info = TypeConstructionInfoCache.Get(concrete);
-            var arguments = ExactArrayPool<object>.Shared.Rent(info.ConstructorParameters.Length);
-
-            for (var i = 0; i < info.ConstructorParameters.Length; i++)
-            {
-                arguments[i] = container.Resolve(info.ConstructorParameters[i]);
-            }
+            var constructorParameters = info.ConstructorParameters;
+            var constructorParametersLength = info.ConstructorParameters.Length;
+            var arguments = ArrayPool.Rent(constructorParametersLength);
 
             try
             {
+                for (var i = 0; i < constructorParametersLength; i++)
+                {
+                    arguments[i] = container.Resolve(constructorParameters[i]);
+                }
+
                 return info.ObjectActivator.Invoke(arguments);
             }
-            catch (Exception e)
+            catch (Exception exception)
             {
-                throw new ConstructorInjectorException(concrete, e);
+                throw new ConstructorInjectorException(concrete, exception, constructorParameters);
             }
             finally
             {
-                ExactArrayPool<object>.Shared.Return(arguments);
+                ArrayPool.Return(arguments);
             }
         }
         
@@ -40,9 +46,9 @@ namespace Reflex.Injectors
             {
                 return info.ObjectActivator.Invoke(arguments);
             }
-            catch (Exception e)
+            catch (Exception exception)
             {
-                throw new ConstructorInjectorException(concrete, e);
+                throw new ConstructorInjectorException(concrete, exception, info.ConstructorParameters);
             }
         }
     }

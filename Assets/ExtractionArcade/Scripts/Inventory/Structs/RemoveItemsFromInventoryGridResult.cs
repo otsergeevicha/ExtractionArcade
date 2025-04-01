@@ -1,4 +1,4 @@
-﻿namespace Inventory.Structs
+﻿namespace ExtractionArcade.Scripts.Inventory.Structs
 {
     public readonly struct RemoveItemsFromInventoryGridResult
     {

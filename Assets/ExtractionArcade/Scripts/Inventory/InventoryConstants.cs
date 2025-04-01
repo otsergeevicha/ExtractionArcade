@@ -1,4 +1,4 @@
-﻿namespace Inventory
+﻿namespace ExtractionArcade.Scripts.Inventory
 {
     public static class InventoryConstants
     {
