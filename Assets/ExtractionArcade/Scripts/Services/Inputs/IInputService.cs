@@ -7,8 +7,10 @@ namespace ExtractionArcade.Scripts.Services.Inputs
     {
         event Action OnJoystick;
         event Action OffJoystick;
-        Vector2 MoveAxis { get; }
+        Vector2 GetMoveAxis { get; }
         Vector2 TouchJoystick { get; }
+        void OnMove(Action<bool> onMove);
+        void OffMove(Action<bool> onMove);
         void OnControls();
         void OffControls();
     }

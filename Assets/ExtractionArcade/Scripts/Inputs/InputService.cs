@@ -18,8 +18,16 @@ namespace ExtractionArcade.Scripts.Inputs
             _input.Player.Touch.canceled += _ =>
                 OffJoystick?.Invoke();
         }
+        
+        public void OnMove(Action<bool> onMove) =>
+            _input.Player.Move.performed += _ =>
+                onMove?.Invoke(true);
+        
+        public void OffMove(Action<bool> onMove) =>
+            _input.Player.Move.canceled += _ =>
+                onMove?.Invoke(false);
 
-        public Vector2 MoveAxis =>
+        public Vector2 GetMoveAxis =>
              _input.Player.Move.ReadValue<Vector2>();
 
         public Vector2 TouchJoystick => 
