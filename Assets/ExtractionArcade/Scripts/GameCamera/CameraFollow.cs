@@ -14,7 +14,6 @@ namespace ExtractionArcade.Scripts.GameCamera
         [SerializeField] private CinemachineVirtualCamera _zoomFollow;
 
         [SerializeField] private Camera _camera;
-        [SerializeField] private CinemachineBasicMultiChannelPerlin _perlin;
         
         private bool _isShowMarker;
         private bool _isShowBoss;
@@ -24,11 +23,8 @@ namespace ExtractionArcade.Scripts.GameCamera
         public void Construct(Hero hero) =>
             _cameraRoot = hero.GetCameraRoot;
         
-        private void OnValidate()
-        {
-            _perlin ??= _zoomFollow.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        private void OnValidate() => 
             _camera ??= GetComponent<Camera>();
-        }
 
         private void Start()
         {
@@ -39,6 +35,8 @@ namespace ExtractionArcade.Scripts.GameCamera
 
             _cameraFollow.LookAt = _cameraRoot;
             _zoomFollow.LookAt = _cameraRoot;
+            
+            OffZoom();
         }
 
         public void OnZoom()

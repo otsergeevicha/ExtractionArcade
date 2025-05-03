@@ -25,6 +25,7 @@ namespace ExtractionArcade.Scripts.Player
         {
             _inputService = inputService;
             _spawnHolder = spawnHolder;
+            inputService.OnControls();
         }
 
         private void Start()

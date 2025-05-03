@@ -1,4 +1,5 @@
-﻿using ExtractionArcade.Scripts.Player;
+﻿using ExtractionArcade.Scripts.GameCamera;
+using ExtractionArcade.Scripts.Player;
 using ExtractionArcade.Scripts.Services.Factory;
 using UnityEngine;
 
@@ -8,5 +9,8 @@ namespace ExtractionArcade.Scripts.Infrastructure.Factory
     {
         public Hero CreateHero(Hero hero) =>
             Object.Instantiate(hero);
+
+        public CameraFollow CreateCameraHero(CameraFollow camera) =>
+            Object.Instantiate(camera);
     }
 }

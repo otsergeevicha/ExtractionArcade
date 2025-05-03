@@ -7,7 +7,6 @@ namespace ExtractionArcade.Scripts.Reflex
 {
     public class ProjectInstaller : MonoCache, IInstaller
     {
-        
         public void InstallBindings(ContainerBuilder descriptor)
         {
             descriptor.AddSingleton(new InputService(), typeof(IInputService));

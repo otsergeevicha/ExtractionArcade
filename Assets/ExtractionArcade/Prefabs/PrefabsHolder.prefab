@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50eb11a7b020406a828528fe0c1c559f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainCamera: {fileID: 3511241445110771224, guid: 88b9f81e3e201ca4997a3418030f2d5f,
-    type: 3}
   _hero: {fileID: 762702941793503199, guid: 5f3a0c5fb8b84c44a827c3db00669c0f, type: 3}
+  _cameraFollow: {fileID: 647397452239887220, guid: 1ade3164c30f72744a241c5d43b302ef,
+    type: 3}

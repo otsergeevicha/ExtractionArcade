@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3653264714014657206}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.849, z: -1.978}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2847846417296717928}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &8821746865229847376
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,8 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2847846417296717928}
-  - component: {fileID: 762702941793503199}
   - component: {fileID: 1731649392486030578}
+  - component: {fileID: 762702941793503199}
   - component: {fileID: 6426032629169030970}
   m_Layer: 0
   m_Name: Hero
@@ -67,20 +67,6 @@ Transform:
   - {fileID: 2649240347133185094}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &762702941793503199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8821746865229847376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 937ffad1168d4534ad75190768147575, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _heroMovement: {fileID: 6426032629169030970}
-  _rootCamera: {fileID: 5358923334501871366}
 --- !u!143 &1731649392486030578
 CharacterController:
   m_ObjectHideFlags: 0
@@ -107,6 +93,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &762702941793503199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821746865229847376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 937ffad1168d4534ad75190768147575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroMovement: {fileID: 6426032629169030970}
+  _rootCamera: {fileID: 5358923334501871366}
 --- !u!114 &6426032629169030970
 MonoBehaviour:
   m_ObjectHideFlags: 0

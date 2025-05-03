@@ -1,5 +1,4 @@
-﻿using System;
-using ExtractionArcade.Scripts.Services.Inputs;
+﻿using ExtractionArcade.Scripts.Services.Inputs;
 using Plugins.MonoCache;
 using UnityEngine;
 
@@ -11,47 +10,51 @@ namespace ExtractionArcade.Scripts.Player
         [SerializeField] private CharacterController _controller;
         [SerializeField] private Animator _animator;
 
+        [Header("Rotation offset at A/D")] 
+        [SerializeField] private float _strafeOffsetAngle = 45f;
+        [SerializeField] private float _rotationSmoothSpeed = 180f;
+        
         private IInputService _input;
-        private bool _isMove;
+        private float _verticalVelocity;
+        private float _moveX;
+        private float _moveY;
+        private Vector3 _moveVector;
 
         public void Construct(IInputService inputService) =>
             _input = inputService;
 
-        private void OnValidate() =>
+        private void OnValidate() => 
             _controller ??= Get<CharacterController>();
 
         protected override void UpdateCached()
         {
             base.UpdateCached();
-            BaseLogic(_input.GetMoveAxis);
+            HandleMovement(_input.GetMoveAxis);
         }
 
-        private void BaseLogic(Vector2 moveAxis)
+        private void HandleMovement(Vector2 moveAxis)
         {
-            Vector3 movementDirection = Vector3.zero;
-
-            if (moveAxis.sqrMagnitude > Single.Epsilon)
-            {
-                _animator.SetBool(Constants.HASH_HERO_IS_WALK, true);
-                movementDirection = new Vector3(moveAxis.x, Single.Epsilon, moveAxis.y);
-            }
-            else
-            {
-                _animator.SetBool(Constants.HASH_HERO_IS_WALK, false);
-            }
-
-            Rotate(movementDirection.normalized);
-            movementDirection += Physics.gravity;
-            _controller.Move(movementDirection * (Constants.HERO_SPEED * Time.deltaTime));
+            _moveX = moveAxis.x;
+            _moveY = moveAxis.y;
+            
+            _animator.SetBool(Constants.HASH_HERO_IS_WALK, Mathf.Abs(_moveY) > Mathf.Epsilon);
+            transform.rotation = Quaternion.Euler(0f, Mathf.MoveTowardsAngle(transform.eulerAngles.y, GetYaw(), _rotationSmoothSpeed * Time.deltaTime), 0f);
+            _moveVector = transform.forward * _moveY;
+            _moveVector.y = GetVerticalVelocity();
+            _controller.Move(_moveVector * (Constants.HERO_SPEED * Time.deltaTime));
         }
 
-        private void Rotate(Vector3 targetDirection)
-        {
-            if (targetDirection == Vector3.zero) 
-                return;
+        private float GetVerticalVelocity() => 
+            _controller.isGrounded 
+                ? Constants.DownforceValue 
+                : GetVelocity();
 
-            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Constants.HERO_ROTATE_SPEED * Time.deltaTime);
-        }
+        private float GetYaw() => 
+            Mathf.Abs(_moveX) > Mathf.Epsilon && _moveY >= 0f 
+                ? transform.eulerAngles.y + Mathf.Sign(_moveX) * _strafeOffsetAngle 
+                : transform.eulerAngles.y;
+
+        private float GetVelocity() => 
+            _verticalVelocity += Constants.Gravity * Time.deltaTime;
     }
 }
